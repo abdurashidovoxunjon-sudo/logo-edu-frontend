@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AppLayout } from './components/layout/AppLayout'
+import { ProtectedRoute } from './components/auth/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import Teachers from './pages/Teachers'
 import Subjects from './pages/Subjects'
@@ -10,12 +11,20 @@ import Parents from './pages/Parents'
 import Skills from './pages/Skills'
 import Assessment from './pages/Assessment'
 import Reports from './pages/Reports'
+import Login from './pages/Login'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<AppLayout />}>
+        <Route path="/login" element={<Login />} />
+        <Route
+          element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="teachers" element={<Teachers />} />
           <Route path="subjects" element={<Subjects />} />
