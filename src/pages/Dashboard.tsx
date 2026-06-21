@@ -23,17 +23,20 @@ export default function Dashboard() {
           value={String(dashboardStats.studentsCount)}
           label="O'quvchilar soni"
           badge={dashboardStats.studentsGrowth}
+          tone="green"
         />
         <StatCard
           icon={<Users size={20} />}
           value={String(dashboardStats.activeTeachers)}
           label="Faol o'qituvchilar"
+          tone="blue"
         />
         <StatCard
           icon={<DollarSign size={20} />}
           value={formatPrice(dashboardStats.monthlyRevenue)}
           label="Kelgan to'lovlar"
           badge="Shu oy"
+          tone="green"
         />
         <StatCard
           icon={<AlertTriangle size={20} />}
@@ -42,6 +45,7 @@ export default function Dashboard() {
           badge={`${dashboardStats.debtorCount} qarzdor`}
           badgeVariant="red"
           valueClassName="text-red-500"
+          tone="red"
         />
       </div>
 

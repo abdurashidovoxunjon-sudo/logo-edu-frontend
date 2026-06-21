@@ -20,6 +20,14 @@ export default {
           800: '#166534',
           900: '#14532d',
         },
+        canvas: {
+          DEFAULT: '#eef1f4',
+          soft: '#f1f4f6',
+        },
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06)',
+        soft: '0 4px 24px -8px rgba(16, 24, 40, 0.08)',
       },
     },
   },

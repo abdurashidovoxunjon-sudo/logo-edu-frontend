@@ -3,7 +3,7 @@ import { formatPrice } from '../../utils/format'
 
 export function RecentPayments() {
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+    <div className="bg-white rounded-2xl p-5 shadow-card border border-gray-100/60 flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <h2 className="font-semibold text-gray-900">Oxirgi to'lovlar</h2>
         <button className="text-sm text-primary hover:underline font-medium">

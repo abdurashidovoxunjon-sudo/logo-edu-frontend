@@ -1,3 +1,5 @@
+type Tone = 'green' | 'blue' | 'red'
+
 interface StatCardProps {
   icon: React.ReactNode
   value: string
@@ -5,6 +7,13 @@ interface StatCardProps {
   badge?: string
   badgeVariant?: 'green' | 'red'
   valueClassName?: string
+  tone?: Tone
+}
+
+const toneClasses: Record<Tone, string> = {
+  green: 'bg-primary-100 text-primary',
+  blue: 'bg-blue-100 text-blue-600',
+  red: 'bg-red-100 text-red-500',
 }
 
 export function StatCard({
@@ -14,6 +23,7 @@ export function StatCard({
   badge,
   badgeVariant = 'green',
   valueClassName,
+  tone = 'green',
 }: StatCardProps) {
   const badgeClass =
     badgeVariant === 'red'
@@ -21,9 +31,11 @@ export function StatCard({
       : 'bg-primary-100 text-primary'
 
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+    <div className="bg-white rounded-2xl p-5 shadow-card flex flex-col gap-4 border border-gray-100/60">
       <div className="flex items-start justify-between">
-        <div className="w-10 h-10 rounded-xl bg-primary-100 flex items-center justify-center text-primary">
+        <div
+          className={`w-10 h-10 rounded-xl flex items-center justify-center ${toneClasses[tone]}`}
+        >
           {icon}
         </div>
         {badge && (
