@@ -34,15 +34,7 @@ export default function Login() {
     setIdError(null)
     setPwError(null)
   }
-
-  function fillDemo() {
-    setIdValue(c.id)
-    setPwValue(c.pw)
-    setIdError(null)
-    setPwError(null)
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     let nextIdErr: string | null = null
     let nextPwErr: string | null = null
@@ -126,12 +118,12 @@ export default function Login() {
     ? 'linear-gradient(160deg, #d8eedf 0%, #f0faf4 60%, #ffffff 100%)'
     : 'linear-gradient(160deg, #fde6c8 0%, #fff5e6 60%, #ffffff 100%)'
 
-  const heroTag = isAdmin ? 'Admin paneli' : 'Ota-ona kabineti'
+  const heroTag = isAdmin ? 'LOGOEDU' : 'Ota-ona kabineti'
   const heroTitle = isAdmin
-    ? "Bog'cha jarayonlarini bir joydan boshqaring"
+    ? "Bog'cha jarayonlarini bir tizimdan boshqaring"
     : "Bolangizning rivojlanishini kuzating"
   const heroSubtitle = isAdmin
-    ? "O'qituvchilar, o'quvchilar, darslar va to'lovlar — barchasi yagona admin panelda."
+    ? "O'qituvchilar, o'quvchilar, darslar va to'lovlar — barchasi yagona tizimda."
     : "Darslar, baholar va to'lovlar bo'yicha to'liq ma'lumot — istalgan vaqtda telefoningizda."
   const heroPoints = isAdmin
     ? ['6 ta modul, real-time hisobotlar', 'Avtomatik maosh hisob-kitobi', "Ko'nikma baholash tarixi"]
@@ -153,7 +145,7 @@ export default function Login() {
   const idPlaceholder = isAdmin ? 'ism@bogchamiz.uz' : '+998 __ ___ __ __'
 
   const footerText = isAdmin
-    ? '© 2026 Bog‘chamiz · Logoped tizimi'
+    ? '© 2026 · LOGOEDU'
     : "Parolni bog'cha administratoridan oling"
 
   // ── styles ──
@@ -727,31 +719,6 @@ export default function Login() {
                 </>
               )}
             </button>
-
-            {/* hint */}
-            <div
-              key={`hint-${role}`}
-              style={{
-                background: '#f7f8fa',
-                border: '1px dashed #d1d5db',
-                borderRadius: 12,
-                padding: '12px 14px',
-                fontSize: 12,
-                color: '#6b7280',
-                lineHeight: 1.5,
-                animation: 'lp-fade-up .45s ease both',
-              }}
-            >
-              <div style={{ fontSize: 10, fontWeight: 700, color: '#9ca3af', letterSpacing: 1, textTransform: 'uppercase', marginBottom: 4 }}>
-                Demo login
-              </div>
-              <span style={{ color: '#1f2937', fontWeight: 700 }}>{c.id}</span> · parol{' '}
-              <span style={{ color: '#1f2937', fontWeight: 700 }}>{c.pw}</span>
-              <span onClick={fillDemo} style={{ marginLeft: 8, color: '#32a86f', fontWeight: 700, cursor: 'pointer' }}>
-                → to'ldirish
-              </span>
-            </div>
-
             <div
               key={`footer-${role}`}
               style={{

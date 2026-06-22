@@ -3,8 +3,10 @@ import { AppLayout } from './components/layout/AppLayout'
 import { ProtectedRoute } from './components/auth/ProtectedRoute'
 import Dashboard from './pages/Dashboard'
 import Teachers from './pages/Teachers'
+import TeacherDetail from './pages/TeacherDetail'
 import Subjects from './pages/Subjects'
 import Students from './pages/Students'
+import StudentDetail from './pages/StudentDetail'
 import Lessons from './pages/Lessons'
 import Payments from './pages/Payments'
 import Parents from './pages/Parents'
@@ -27,8 +29,10 @@ export default function App() {
         >
           <Route index element={<Dashboard />} />
           <Route path="teachers" element={<Teachers />} />
+          <Route path="teachers/:id" element={<TeacherDetail />} />
           <Route path="subjects" element={<Subjects />} />
           <Route path="students" element={<Students />} />
+          <Route path="students/:id" element={<StudentDetail />} />
           <Route path="lessons" element={<Lessons />} />
           <Route path="payments" element={<Payments />} />
           <Route path="parents" element={<Parents />} />

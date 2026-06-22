@@ -29,3 +29,11 @@ export async function adminLogin(
   )
   return { token: data.data.token, user: data.data.user }
 }
+
+export async function logout(): Promise<void> {
+  try {
+    await api.post('/auth/logout')
+  } catch {
+    // best-effort: ignore server/network errors so local cleanup always runs
+  }
+}

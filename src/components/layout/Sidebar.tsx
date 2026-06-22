@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { logout } from '../../api/auth'
+import { clearAuth } from '../../lib/auth'
 import {
   LayoutDashboard,
   Users,
@@ -61,6 +63,14 @@ function NavItemLink({ item }: { item: NavItem }) {
 }
 
 export function Sidebar() {
+  const navigate = useNavigate()
+
+  async function handleLogout() {
+    await logout()
+    clearAuth()
+    navigate('/login', { replace: true })
+  }
+
   return (
     <aside className="w-56 shrink-0 h-screen sticky top-0 flex flex-col bg-white border-r border-gray-100">
       {/* Logo */}
@@ -106,7 +116,11 @@ export function Sidebar() {
           <p className="text-sm font-semibold text-gray-900 truncate">Admin Aliyev</p>
           <p className="text-xs text-gray-400">Superadmin</p>
         </div>
-        <button className="text-gray-400 hover:text-gray-600 transition-colors">
+        <button
+          onClick={handleLogout}
+          aria-label="Tizimdan chiqish"
+          className="text-gray-400 hover:text-gray-600 transition-colors"
+        >
           <LogOut size={16} />
         </button>
       </div>
