@@ -289,7 +289,7 @@ function LessonFormModal({ onClose, onSaved }: LessonFormModalProps) {
 
 export default function Lessons() {
   const [lessons, setLessons] = useState<LessonAPI[]>([])
-  const [total, setTotal] = useState(0)
+  const [, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
